@@ -1,26 +1,26 @@
 #include <iostream>
 #include <stdlib.h>
 
-#define size 100
+#define size 2
 
 int stack[size];
-int top = 0, flag = 0;
+int top = -1, flag = 0;
 
 void push(int item){
-    if(top == size){
+    if(top == size-1){
         std::cout << "\nStack is full!!\n\n";
     } else {
-        stack[top++] = item;
+        stack[++top] = item;
         std::cout << item << " pushed into the stack. \n\n";
     }
 }
 
 int pop() {
-    if(top == 0) {
+    if(top < 0) {
         std::cout << "Stack is empty";
     } else {
         int item;
-        item = stack[--top];
+        item = stack[top--];
         std::cout << "\nPopped:";
     return item;
     }
@@ -29,10 +29,10 @@ int pop() {
 }
 
 void display(){
-    if(top == 0) {
+    if(top < 0) {
         std::cout << "Nothing to Display\n";
     } else {
-        for(int i = 0; i < top; i++) {
+        for(int i = 0; i <= top; i++) {
             std::cout << *(stack+i) << " ";
         }
     }
