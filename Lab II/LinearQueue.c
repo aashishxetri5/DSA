@@ -26,7 +26,7 @@ int dequeue() {
 }
 
 void display() {
-    if(rear == -1 || front == size){
+    if(rear < front) {
         printf("\nThe Queue is empty!!\n");
     } else {
         int i;
