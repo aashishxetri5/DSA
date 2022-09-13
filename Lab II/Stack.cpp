@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 
-#define size 2
+#define size 100
 
 int stack[size];
 int top = -1, flag = 0;
@@ -19,13 +19,10 @@ int pop() {
     if(top < 0) {
         std::cout << "Stack is empty";
     } else {
-        int item;
-        item = stack[top--];
-        std::cout << "\nPopped:";
-    return item;
+        return stack[top--];
     }
     flag = 1; // This prevents from displaying 0 when stack is empty and pop is called.
-    return NULL;
+    return 0;
 }
 
 void display(){
@@ -33,7 +30,7 @@ void display(){
         std::cout << "Nothing to Display\n";
     } else {
         for(int i = 0; i <= top; i++) {
-            std::cout << *(stack+i) << " ";
+            std::cout << stack[i] << " ";
         }
     }
 }
@@ -58,10 +55,10 @@ int main() {
             case 2:
                 popped_val = pop();
                 if(!flag){
-                    std::cout << popped_val;
+                    std::cout << "\nPopped: " << popped_val;
+                } else {
                     flag = 0;
                 }
-
                 std::cout << std::endl;
                 break;
             case 3:
@@ -74,7 +71,7 @@ int main() {
                 exit(0);
                 break;
             default:
-                std::cout << "Invalid Input!!";
+                std::cout << "Invalid Input!!\n\n";
                 break;
         }
     }
