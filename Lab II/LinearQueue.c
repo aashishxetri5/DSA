@@ -4,7 +4,7 @@
 #define size 5
 
 int Queue[size];
-int front = 0, rear = -1;
+int front = 0, rear = -1, flag = 0;
 
 void enqueue(int item){
     if(rear == size-1) {
@@ -22,6 +22,7 @@ int dequeue() {
         int item = Queue[front++];
         return item;
     }
+    flag = 1;
     return NULL;
 }
 
@@ -39,7 +40,7 @@ void display() {
 
 
 int main(){
-    int choice, num;
+    int choice, num, item;
 
     while(1) {
         printf("Press 1 to Enqueue\n");
@@ -55,7 +56,11 @@ int main(){
                 enqueue(num);
                 break;
             case 2:
-                printf("\nDequeued: %d\n", dequeue());
+                item = dequeue();
+                if(!flag) {
+                    printf("\nDequeued: %d\n", item);
+                    flag = 0;
+                }
                 break;
             case 3:
                 display();

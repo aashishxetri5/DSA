@@ -4,7 +4,7 @@
 #define size 100
 
 int stack[size];
-int top = 0;
+int top = 0, flag = 0;
 
 void push(int item){
     if(top == size){
@@ -24,6 +24,7 @@ int pop() {
         std::cout << "\nPopped:";
     return item;
     }
+    flag = 1; // This prevents from displaying 0 when stack is empty and pop is called.
     return NULL;
 }
 
@@ -39,7 +40,7 @@ void display(){
 
 int main() {
 
-    int choice, num;
+    int choice, num, popped_val;
 
     while(true) {
         std::cout << "Press 1 to Push\n";
@@ -55,7 +56,12 @@ int main() {
                 push(num);
                 break;
             case 2:
-                std::cout << pop();
+                popped_val = pop();
+                if(!flag){
+                    std::cout << popped_val;
+                    flag = 0;
+                }
+
                 std::cout << std::endl;
                 break;
             case 3:
