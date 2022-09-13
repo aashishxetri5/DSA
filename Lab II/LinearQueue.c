@@ -19,8 +19,7 @@ int dequeue() {
     if(front > rear) {
         printf("\nQueue is empty!!\n");
     } else {
-        int item = Queue[front++];
-        return item;
+        return Queue[front++];
     }
     flag = 1;
     return NULL;
@@ -29,7 +28,7 @@ int dequeue() {
 void display() {
     if(rear == -1 || front == size){
         printf("\nThe Queue is empty!!\n");
-    }else{
+    } else {
         int i;
         printf("Displaying items on the queue\n");
         for(i = front; i <= rear; i++) {
@@ -59,6 +58,7 @@ int main(){
                 item = dequeue();
                 if(!flag) {
                     printf("\nDequeued: %d\n", item);
+                } else {
                     flag = 0;
                 }
                 break;
