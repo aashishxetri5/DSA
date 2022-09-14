@@ -22,7 +22,7 @@ int dequeue() {
         return Queue[front++];
     }
     flag = 1;
-    return NULL;
+    return 0;
 }
 
 void display() {
