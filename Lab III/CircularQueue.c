@@ -25,7 +25,7 @@ void enqueue(int item) {
 // Removes the first element from the queue.
 int dequeue() {
     
-    if (front == -1) {
+    if (front == -1 || front == rear) {
         printf("The queue is Empty!!\n");
     } else {
         int item = cir_queue[front];
@@ -40,7 +40,7 @@ int dequeue() {
 // Displays all the items currently in the queue.
 void display() {
     
-    if (front == -1) {
+    if (front == -1 || front == rear) {
         printf("Nothing to display!!\n");
     } else {
         int i;
